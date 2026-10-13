@@ -7,7 +7,7 @@
 
   outputs = inputs@{ self, nixpkgs, flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = nixpkgs.lib.systems.flakeExposed;
+      systems = [ "aarch64-darwin" "aarch64-linux" "x86_64-linux" ];
       imports = [
         inputs.treefmt-config.flakeModule
       ];
